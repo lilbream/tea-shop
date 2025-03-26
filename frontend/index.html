@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чайная лавка</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>🍵 Чайная коллекция</h1>
+        <button class="cart-btn" onclick="toggleCart()">
+            🛒 Корзина <span id="cart-count">0</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <div id="categories"></div>
+    </div>
+
+    <!-- Модальное окно товара -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modal-image" class="product-image" src="" alt="">
+            <h2 id="modal-name"></h2>
+            <p id="modal-description"></p>
+            <p id="modal-price" class="product-price"></p>
+            <div class="quantity-selector">
+                <button onclick="changeQuantity(-1)">-</button>
+                <span id="quantity">1</span>
+                <button onclick="changeQuantity(1)">+</button>
+            </div>
+            <button class="add-to-cart" onclick="addToCart()">Добавить в корзину</button>
+        </div>
+    </div>
+
+    <!-- Корзина -->
+    <div class="cart" id="cart">
+        <div class="cart-header">
+            <h2>Ваша корзина</h2>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            <h3>Итого: <span id="total-price">0</span> ₽</h3>
+            <button class="checkout-btn">Оформить заказ</button>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
